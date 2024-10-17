@@ -1,0 +1,29 @@
+.login-box{
+  background-color: #f54236;
+  height: 90vh;
+}
+
+.login-inner-box{
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-btn{
+  background-color: #f54236 !important;
+  border: none !important;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.logout-btn{
+  background-color: #f54236 !important;
+  border: none !important;
+}
+
+.caption-1{
+  font-weight: bold;
+  font-style: italic;
+}
