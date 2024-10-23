@@ -52,7 +52,6 @@ export default function SelectSeat(){
                             {seatsArr.map((seat) => {
                                 let isSelected = selectedSeats.indexOf(seat) > -1;
                                 return(
-                                    
                                     <Col>
                                         <Button style={{backgroundColor: isSelected ? "green" : "grey", border:'none', }} onClick={() => handleSelect(seat)}>{seat}</Button>
                                     </Col>
