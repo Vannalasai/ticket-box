@@ -32,7 +32,7 @@ export default function SelectSeat(){
 
     useEffect( () => {
         createSeats();
-    })
+    }, [])
 
     const handleSelect = (newSeat) => {
         setSelectedSeats([...selectedSeats, newSeat]);

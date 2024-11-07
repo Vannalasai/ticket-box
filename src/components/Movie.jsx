@@ -14,7 +14,6 @@ export default function Movie() {
     const [theatres, setTheatres] = useState([]);
     const navigate = useNavigate('');
 
-
     useEffect(() => {
         if('geolocation' in navigator){
             navigator.geolocation.getCurrentPosition((position) => {
@@ -28,7 +27,7 @@ export default function Movie() {
 
     useEffect(() => {
         if(Object.keys(latLng).length > 0){
-            const geoAPI = `https://api.geoapify.com/v2/places?categories=entertainment.cinema&filter=circle:${latLng.lng},${latLng.lat},10000&bias=proximity:78.4740613,17.360589&limit=20&apiKey=d3eba6ce6a014eee8668f26b116e3624`;
+            const geoAPI = `https://api.geoapify.com/v2/places?categories=entertainment.cinema&filter=circle:78.4740613,17.360589,10000&bias=proximity:78.4740613,17.360589&limit=20&apiKey=d3eba6ce6a014eee8668f26b116e3624`;
             axios.get(geoAPI).then(res => {
                 console.log(res.data)
                 const featuresArr = res.data.features;
@@ -37,7 +36,7 @@ export default function Movie() {
                 setTheatres(names);
             })
         }
-    }, [latLng])
+    }, [])
 
     return(
         <div>
