@@ -36,7 +36,7 @@ export default function Movie() {
                 setTheatres(names);
             })
         }
-    }, [])
+    }, [latLng])
 
     return(
         <div>

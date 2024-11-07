@@ -53,7 +53,7 @@ export default function SelectSeat(){
                                 let isSelected = selectedSeats.indexOf(seat) > -1;
                                 return(
                                     <Col>
-                                        <Button style={{backgroundColor: isSelected ? "green" : "grey", border:'none', }} onClick={() => handleSelect(seat)}>{seat}</Button>
+                                        <Button style={{backgroundColor: isSelected ? "green" : "grey", border:'none' }} onClick={() => handleSelect(seat)}>{seat}</Button>
                                     </Col>
                                 )
                             })}
