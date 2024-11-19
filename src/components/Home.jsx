@@ -14,7 +14,7 @@ export default function Home(){
         async function getProducts(){
             const response = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=0ced3225fb7d16e4e6e8c93cf71e53ea&language=en-US&page=1');
             setMovies(response.data.results);
-            console.log(response.data.results);
+            // console.log(response.data.results);
         }
         getProducts();
     }, [])

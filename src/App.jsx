@@ -31,8 +31,8 @@ function App() {
     // if(userEmail) {
     //   setUser(userEmail);
     // }
-    onAuthStateChanged(auth, user => {
-      if(user){
+    onAuthStateChanged(auth, user1 => {
+      if(user1){
         navigate('/')
         setUser(user)
         console.log("user is login")

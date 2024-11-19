@@ -16,7 +16,7 @@ export default function Login({setUser}) {
         signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
             localStorage.setItem("userEmail", email);
             setUser(email);
-            // navigate('/')
+            navigate('/')
         }).catch(err => {
             console.log(err)
         })
