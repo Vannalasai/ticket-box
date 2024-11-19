@@ -3,15 +3,24 @@ import { Row , Col , Form , Button , Card} from "react-bootstrap";
 import LoginImage from "../assets/login.png";
 import { useNavigate } from "react-router-dom";
 
+import { auth } from "../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
 export default function Signup({setUser}) {
 
     const navigate = useNavigate('');
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleSubmit = () => {
-        localStorage.setItem("userEmail", email);
-        setUser(email);
-        navigate('/')
+        createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+            localStorage.setItem("userEmail", email);
+            setUser(email);
+            navigate('/')
+        }).catch(err => {
+            console.log(err)
+        })
+        
     }
 
     return(
@@ -34,7 +43,8 @@ export default function Signup({setUser}) {
 
                                     <Form.Group className="mb-3" controlId="formBasicPassword">
                                         <Form.Label>Password</Form.Label>
-                                        <Form.Control type="password" placeholder="Password" required/>
+                                        <Form.Control type="password" placeholder="Password"
+                                        onChange={(e) => setPassword(e.target.value)} required/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formBasicPassword">

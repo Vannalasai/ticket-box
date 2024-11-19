@@ -4,14 +4,23 @@ import LoginImage from "../assets/login.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+import { auth } from "../firebase"
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 export default function Login({setUser}) {
-    const navigate = useNavigate('');
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleSubmit = () => {
-        localStorage.setItem("userEmail", email);
-        setUser(email);
-        navigate('/')
+        signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+            localStorage.setItem("userEmail", email);
+            setUser(email);
+            // navigate('/')
+        }).catch(err => {
+            console.log(err)
+        })
+        
     }
 
     return(

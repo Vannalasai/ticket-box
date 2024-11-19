@@ -19,15 +19,28 @@ import Movie from './components/Movie';
 import SelectSeat from './components/SelectSeat';
 import Success from './components/Success';
 
+import { auth } from './firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+
 function App() {
   const navigate = useNavigate("");
   const [user, setUser] = useState('');
 
   useEffect(() => {
-    const userEmail = localStorage.getItem('userEmail')
-    if(userEmail) {
-      setUser(userEmail);
-    }
+    // const userEmail = localStorage.getItem('userEmail')
+    // if(userEmail) {
+    //   setUser(userEmail);
+    // }
+    onAuthStateChanged(auth, user => {
+      if(user){
+        navigate('/')
+        setUser(user)
+        console.log("user is login")
+      }else{
+        navigate('/login')
+        console.log('user is not there')
+      }
+    })
   }, [user]);
 
   const handleLogout = () => {
