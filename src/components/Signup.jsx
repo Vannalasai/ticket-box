@@ -10,16 +10,19 @@ export default function Signup({setUser}) {
 
     const navigate = useNavigate('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    // const [password, setPassword] = useState('');
 
     const handleSubmit = () => {
-        createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-            localStorage.setItem("userEmail", email);
-            setUser(email);
-            navigate('/')
-        }).catch(err => {
-            console.log(err)
-        })
+        localStorage.setItem("userEmail", email);
+        setUser(email);
+        navigate('/')
+        // createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        //     localStorage.setItem("userEmail", email);
+        //     setUser(email);
+        //     navigate('/')
+        // }).catch(err => {
+        //     console.log(err)
+        // })
         
     }
 

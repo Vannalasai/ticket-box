@@ -27,20 +27,20 @@ function App() {
   const [user, setUser] = useState('');
 
   useEffect(() => {
-    // const userEmail = localStorage.getItem('userEmail')
-    // if(userEmail) {
-    //   setUser(userEmail);
-    // }
-    onAuthStateChanged(auth, user1 => {
-      if(user1){
-        navigate('/')
-        setUser(user)
-        console.log("user is login")
-      }else{
-        navigate('/login')
-        console.log('user is not there')
-      }
-    })
+    const userEmail = localStorage.getItem('userEmail')
+    if(userEmail) {
+      setUser(userEmail);
+    }
+    // onAuthStateChanged(auth, user1 => {
+    //   if(user1){
+    //     navigate('/')
+    //     setUser(user)
+    //     console.log("user is login")
+    //   }else{
+    //     navigate('/login')
+    //     console.log('user is not there')
+    //   }
+    // })
   }, [user]);
 
   const handleLogout = () => {

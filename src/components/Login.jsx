@@ -10,16 +10,20 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 export default function Login({setUser}) {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    // const [password, setPassword] = useState('');
 
     const handleSubmit = () => {
-        signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-            localStorage.setItem("userEmail", email);
-            setUser(email);
-            navigate('/')
-        }).catch(err => {
-            console.log(err)
-        })
+        localStorage.setItem("userEmail", email);
+        setUser(email);
+        navigate('/')
+        // signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        //     localStorage.setItem("userEmail", email);
+        //     setUser(email);
+        //     navigate('/')
+        //     console.log(userCredential)
+        // }).catch(err => {
+        //     console.log(err)
+        // })
         
     }
 
